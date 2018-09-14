@@ -20,6 +20,7 @@ public class NotificationUtils {
 
     private NotificationUtils(Context context) {
         this.mContext = context;
+        createChnnel();
     }
 
     public static NotificationUtils getInstance(Context context) {
@@ -63,7 +64,7 @@ public class NotificationUtils {
     }
 
     public void sendNotification() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "chat")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -83,7 +84,7 @@ public class NotificationUtils {
 
 
     public void sendNotification1() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "chat")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -104,7 +105,7 @@ public class NotificationUtils {
 
 
     public void sendNotification2() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "chat")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
                 .setSmallIcon(R.mipmap.ic_launcher)

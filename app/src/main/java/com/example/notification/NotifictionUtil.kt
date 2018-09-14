@@ -60,7 +60,7 @@ class NotifictionUtil private constructor(context: Context) {
     }
 
     fun sendNotification() {
-        val builder = NotificationCompat.Builder(mContext, "chat")
+        val builder = NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -79,7 +79,7 @@ class NotifictionUtil private constructor(context: Context) {
 
 
     fun sendNotification1() {
-        val builder = NotificationCompat.Builder(mContext, "chat")
+        val builder = NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -100,7 +100,7 @@ class NotifictionUtil private constructor(context: Context) {
 
 
     fun sendNotification2() {
-        val builder = NotificationCompat.Builder(mContext, "chat")
+        val builder = NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
                 .setSmallIcon(R.mipmap.ic_launcher)
