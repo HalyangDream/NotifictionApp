@@ -62,4 +62,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         var intent = Intent(this, MainAcitivty1::class.java)
         startActivity(intent)
     }
+
+    override fun onBackPressed() {
+        android.os.Process.killProcess(android.os.Process.myPid())
+        System.exit(0)
+    }
 }
