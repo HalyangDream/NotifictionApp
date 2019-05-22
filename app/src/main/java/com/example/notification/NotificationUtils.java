@@ -80,10 +80,11 @@ public class NotificationUtils {
                 .addAction(new NotificationCompat.Action(R.mipmap.ic_launcher, "查看", getPendingIntent()))
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
         getManager(mContext).notify(1, builder.build());
+
     }
 
 
-    public void sendNotification1() {
+    public void sendNotification1(String content,Bundle bundle) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
@@ -91,9 +92,10 @@ public class NotificationUtils {
                 //必须
                 .setContentTitle("这是标题")
                 //必须
-                .setContentText("这是内容")
+                .setContentText(content)
                 //必须
                 .setContentIntent(getPendingIntent())
+                .setExtras(bundle)
                 .setTicker("悬浮通知")
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setAutoCancel(true)

@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         NotifictionUtil.getInstance(this).createChnnel()
         supportActionBar?.title = "MainActivity"
         setLintener()
+//        val intent = Intent(this, NotificationService::class.java)
+//        startService(intent)
     }
 
     private fun setLintener() {
