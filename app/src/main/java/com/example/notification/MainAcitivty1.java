@@ -21,10 +21,8 @@ import java.util.Set;
 
 public class MainAcitivty1 extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn, btn1, btn2;
+    private Button btn, btn1, btn2, btn3;
 
-    private NotificationService notificationService;
-    private boolean isConnect = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,27 +37,16 @@ public class MainAcitivty1 extends AppCompatActivity implements View.OnClickList
         btn = findViewById(R.id.btnNotification);
         btn1 = findViewById(R.id.btnNotification1);
         btn2 = findViewById(R.id.btnNotification2);
+        btn3 = findViewById(R.id.btnNotification3);
         isNotificationListenerEnabled(this);
     }
 
-    private ServiceConnection connection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            isConnect = true;
-            NotificationService.MyBinder binder = (NotificationService.MyBinder) service;
-            notificationService = binder.getService();
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            isConnect = false;
-        }
-    };
 
     private void setLintener() {
         btn.setOnClickListener(this);
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
     }
 
     @Override
@@ -69,12 +56,15 @@ public class MainAcitivty1 extends AppCompatActivity implements View.OnClickList
                 NotificationUtils.getInstance(this).sendNotification();
                 break;
             case R.id.btnNotification1:
-                Intent intent = new Intent(this, NotificationService.class);
-                intent.putExtra("type", "send");
-                startService(intent);
+                NotificationUtils.getInstance(this).sendNotification1();
                 break;
             case R.id.btnNotification2:
                 NotificationUtils.getInstance(this).sendNotification2();
+                break;
+            case R.id.btnNotification3:
+                Intent intent = new Intent(this, NotificationService.class);
+                intent.putExtra("type", "send");
+                startService(intent);
                 break;
             default:
                 break;

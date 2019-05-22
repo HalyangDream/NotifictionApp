@@ -60,20 +60,22 @@ public class NotificationService extends NotificationListenerService {
         int num = 0;
         if (type.equals("send")) {
             StatusBarNotification[] statusBarNotifications = getActiveNotifications();
-            Log.i("NotificationService", "statusBarNotifications num=" + statusBarNotifications.length);
-            for (int i = 0; i < statusBarNotifications.length; i++) {
-                StatusBarNotification item = statusBarNotifications[i];
-                Log.i("NotificationService", "StatusBarNotification itemId=" + item.getId());
-                if (item.getPackageName().equals("com.example.notification") && item.getId() == 1) {
-                    Bundle bundle = item.getNotification().extras;
-                    num = bundle.getInt("num", 0);
-                    num += 1;
+            if (statusBarNotifications != null && statusBarNotifications.length > 0) {
+                Log.i("NotificationService", "statusBarNotifications num=" + statusBarNotifications.length);
+                for (StatusBarNotification item : statusBarNotifications) {
+                    Log.i("NotificationService", "StatusBarNotification itemId=" + item.getId());
+                    if (item.getPackageName().equals("com.example.notification") && item.getId() == 1) {
+                        Bundle bundle = item.getNotification().extras;
+                        num = bundle.getInt("num", 0);
+                        num += 1;
+                    }
                 }
             }
+
             Bundle bundle = new Bundle();
             bundle.putInt("num", num);
             String content = num > 0 ? "有" + num + "条内容" : "这是内容";
-            NotificationUtils.getInstance(this).sendNotification1(content, bundle);
+            NotificationUtils.getInstance(this).sendNotificationQQ(content, bundle);
         }
         return super.onStartCommand(intent, flags, startId);
     }

@@ -26,4 +26,10 @@
         android:layout_height="wrap_content"
         android:text="通知栏悬浮显示(需要触摸消失)" />
 
+    <Button
+        android:id="@+id/btnNotification3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="仿QQ及时更新通知栏消息" />
+
 </LinearLayout>

@@ -84,7 +84,7 @@ public class NotificationUtils {
     }
 
 
-    public void sendNotification1(String content,Bundle bundle) {
+    public void sendNotification1() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "test")
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                 //必须
@@ -92,10 +92,9 @@ public class NotificationUtils {
                 //必须
                 .setContentTitle("这是标题")
                 //必须
-                .setContentText(content)
+                .setContentText("这是内容")
                 //必须
                 .setContentIntent(getPendingIntent())
-                .setExtras(bundle)
                 .setTicker("悬浮通知")
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setAutoCancel(true)
@@ -118,6 +117,28 @@ public class NotificationUtils {
                 //必须
                 .setContentIntent(getPendingIntent())
                 .setFullScreenIntent(getPendingIntent(), true)
+                .setAutoCancel(true)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .addAction(new NotificationCompat.Action(R.mipmap.ic_launcher, "查看", getPendingIntent()))
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+        getManager(mContext).notify(1, builder.build());
+    }
+
+
+    public void sendNotificationQQ(String content, Bundle bundle) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "test")
+                .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                //必须
+                .setSmallIcon(R.mipmap.ic_launcher)
+                //必须
+                .setContentTitle("这是标题")
+                //必须
+                .setContentText(content)
+                //必须
+                .setContentIntent(getPendingIntent())
+                .setExtras(bundle)
+                .setTicker("悬浮通知")
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setAutoCancel(true)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .addAction(new NotificationCompat.Action(R.mipmap.ic_launcher, "查看", getPendingIntent()))
